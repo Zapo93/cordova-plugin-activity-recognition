@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-activity-recognition" version="0.1">
+    <name>ActivityRecognition</name>
+    <description>Cordova Activity Recognition Plugin</description>
+    
+    <js-module src="www/ActivityRecognition.js" name="ActivityRecognition">
+        <clobbers target="ActivityRecognition" />
+    </js-module>
+	
+    <platform name="android">
+		<config-file target="config.xml" parent="/*">
+			<feature name="ActivityRecognition">
+				<param name="android-package" value="cordova.plugin.activity.recognition"/>
+			</feature>
+		</config-file>
+
+		<source-file src="src/android/ActivityRecognition.java" target-dir="src/org/apache/cordova/plugin" />
+	</platform>
+</plugin>
