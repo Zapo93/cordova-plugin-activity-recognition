@@ -1,0 +1,25 @@
+{
+  "name": "ActivityRecognition",
+  "version": "0.0.1",
+  "description": "Cordova plugin for using the ActivityRecognition API .",
+  "cordova": {
+    "id": "cordova-plugin-activity-recognition",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zapo93/cordova-plugin-activity-recognition.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Zapo93",
+  "license": "Zapo",
+  "bugs": {
+    "url": "https://github.com/Zapo93/cordova-plugin-activity-recognition/issues"
+  },
+  "homepage": "https://github.com/Zapo93/cordova-plugin-activity-recognition#readme"
+}
