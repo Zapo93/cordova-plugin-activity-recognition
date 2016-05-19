@@ -1,4 +1,4 @@
-package cordova-plugin-activity-recognition;
+package cordova-plugin-activity-recognition;;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
