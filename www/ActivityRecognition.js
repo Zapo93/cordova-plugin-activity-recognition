@@ -1,6 +1,5 @@
-window.ActivityRecognition = function(str, callback) {
-    alert("ActivityRecognition !!!");
-    cordova.exec(callback, function(err) {
-        callback('Nothing to echo.');
-    }, "ActivityRecognition", "GetCurrentActivity", [str]);
+var exec = require('cordova/exec');
+
+exports.coolMethod = function(arg0, success, error) {
+    exec(success, error, "ActivityRecognition", "coolMethod", [arg0]);
 };
