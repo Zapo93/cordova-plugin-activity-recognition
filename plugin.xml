@@ -18,7 +18,7 @@
 		
 		<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
 		
-		<framework src="com.google.android.gms:play-services:8.1.0" value="gradle" />
+		<framework src="com.google.android.gms" value="gradle" />
 			
 		<source-file src="src/android/ActivityRecognition.java" target-dir="src/cordova-plugin-activity-recognition/ActivityRecognition" />
 		<source-file src="src/android/ActivityRecognitionIntentService.java" target-dir="src/cordova-plugin-activity-recognition/ActivityRecognition" />
