@@ -11,6 +11,9 @@ import org.json.JSONObject;
  * This class echoes a string called from JavaScript.
  */
 public class ActivityRecognition extends CordovaPlugin {
+	
+	public static ActivityRequestResult Activity;
+	public static ActivityRecognitionInit API = new ActivityRecognitionInit();
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
