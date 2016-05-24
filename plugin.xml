@@ -7,7 +7,7 @@
 
 	<platform name="android">
 		
-		<framework src="com.google.android.gms:play-services:8.4.0" value="gradle"/>
+		<framework src="com.google.android.gms:play-services-location:+" value="gradle"/>
 		
 		<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
 		
