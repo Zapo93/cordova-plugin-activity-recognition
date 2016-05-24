@@ -4,8 +4,14 @@
 	<js-module name="ActivityRecognition" src="www/ActivityRecognition.js">
 		<clobbers target="cordova.plugins.ActivityRecognition" />
 	</js-module>
+	
+	<engines>
+        	<engine name="cordova" version=">=3.0.0" />
+    	</engines>
 
 	<platform name="android">
+		
+		<dependency id="com.google.playservices" />
 		
 		<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
 		
@@ -19,7 +25,6 @@
 			<service android:name=".ActivityRecognitionIntentService" android:exported="false" />
 		</config-file>
 		
-		<framework src="com.google.android.gms:play-services-location:9.0.0" value="gradle"/>
 		
 		<source-file src="src/android/ActivityRecognition.java" target-dir="src/cordova-plugin-activity-recognition/ActivityRecognition" />
 		<source-file src="src/android/ActivityRecognitionIntentService.java" target-dir="src/cordova-plugin-activity-recognition/ActivityRecognition" />
