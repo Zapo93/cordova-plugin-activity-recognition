@@ -7,8 +7,6 @@
 
 	<platform name="android">
 		
-		
-		
 		<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
 		
 		<config-file parent="/*" target="res/xml/config.xml">
@@ -19,8 +17,9 @@
 		
 		<config-file parent="/*" target="AndroidManifest.xml">
 			<service android:name=".ActivityRecognitionIntentService" android:exported="false" />
-			<framework src="com.google.android.gms:play-services-location:9.0.0" value="gradle"/>
 		</config-file>
+		
+		<framework src="com.google.android.gms:play-services-location:9.0.0" value="gradle"/>
 		
 		<source-file src="src/android/ActivityRecognition.java" target-dir="src/cordova-plugin-activity-recognition/ActivityRecognition" />
 		<source-file src="src/android/ActivityRecognitionIntentService.java" target-dir="src/cordova-plugin-activity-recognition/ActivityRecognition" />
