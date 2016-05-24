@@ -54,7 +54,7 @@ public class ActivityRecognitionInit extends Activity implements ConnectionCallb
 	}
  
     @Override
-    public void onConnected(@Nullable Bundle bundle) 
+    public void onConnected( Bundle bundle) 
 	{
         Connected = true; 
     }
@@ -66,7 +66,7 @@ public class ActivityRecognitionInit extends Activity implements ConnectionCallb
     }
  
     @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult)
+    public void onConnectionFailed( ConnectionResult connectionResult)
 	{
  
     }
