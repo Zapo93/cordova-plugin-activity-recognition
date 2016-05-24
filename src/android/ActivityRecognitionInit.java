@@ -14,7 +14,7 @@ import com.google.android.gms.location.ActivityRecognitionClient;
 public class ActivityRecognitionInit implements ConnectionCallbacks, OnConnectionFailedListener
 {
 	public GoogleApiClient mApiClient;
-	private bool Connected;
+	private Boolean Connected;
 	private PendingIntent pendingIntent;
  
 	
@@ -30,7 +30,7 @@ public class ActivityRecognitionInit implements ConnectionCallbacks, OnConnectio
 		mApiClient.connect();
 	}
 	
-	public bool StartRequestingActivity(int Interval)
+	public Boolean StartRequestingActivity(int Interval)
 	{
 		if(Connected)
 		{
