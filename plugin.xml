@@ -11,6 +11,8 @@
 
 	<platform name="android">
 		
+		<dependancy id="cordova-plugin-googleplayservices"/>
+		
 		<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
 		
 		<config-file parent="/*" target="res/xml/config.xml">
