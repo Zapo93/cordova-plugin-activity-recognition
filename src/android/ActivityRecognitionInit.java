@@ -1,6 +1,7 @@
 package cordova.plugin.activity.recognition;
 
 import android.app.PendingIntent;
+import android.content.Intent;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
