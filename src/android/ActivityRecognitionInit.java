@@ -50,7 +50,7 @@ public class ActivityRecognitionInit extends Activity implements ConnectionCallb
 	
 	public void RemoveActivityUpdates() 
 	{
-		ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent).setResultCallback(this);
+		ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent)//.setResultCallback(this);
 	}
  
     @Override
