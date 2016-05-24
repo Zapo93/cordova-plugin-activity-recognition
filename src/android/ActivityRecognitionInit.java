@@ -12,12 +12,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
+
 
 import com.google.android.gms.location.ActivityRecognition;
 
-public class ActivityRecognitionInit extends Activity implements ConnectionCallbacks, OnConnectionFailedListener, ResultCallback<Status> 
+public class ActivityRecognitionInit extends Activity implements ConnectionCallbacks, OnConnectionFailedListener
 {
 	public GoogleApiClient mApiClient;
 	private Boolean Connected;
@@ -52,7 +51,7 @@ public class ActivityRecognitionInit extends Activity implements ConnectionCallb
 	
 	public void RemoveActivityUpdates() 
 	{
-		ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent).setResultCallback(this);
+		ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent);
 	}
  
     @Override
