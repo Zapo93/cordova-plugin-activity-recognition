@@ -18,7 +18,8 @@ public class ActivityRecognition extends CordovaPlugin {
 	public CallbackContext callback ;
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
+	{
         callback = callbackContext;
 		if (action.equals("GetActivity"))
 		{
@@ -52,14 +53,14 @@ public class ActivityRecognition extends CordovaPlugin {
 
     private void GetActivity() 
 	{
-        if (Connected == true)
-		{
+        // if (Connected == true)
+		// {
             callback.success();
-        } 
-        else 
-		{
-            callback.error("Error Activity.");
-        }
+        // } 
+        // else 
+		// {
+            // callback.error("Error Activity.");
+        // }
     }
 	
 	private void Connect() 
