@@ -63,7 +63,7 @@ public class ActivityRecognition extends CordovaPlugin {
         // }
     }
 	
-	private void Connect() 
+/*	private void Connect() 
 	{
         if(Connected == false)
 		{
@@ -111,7 +111,7 @@ public class ActivityRecognition extends CordovaPlugin {
 		{
 			callback.error("StopActivityUpdates");
 		}
-    }
+    }*/
 	
 	
 }
