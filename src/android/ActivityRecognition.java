@@ -20,10 +20,10 @@ public class ActivityRecognition extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
 	{
-        callback = callbackContext;
+        //callback = callbackContext;
 		if (action.equals("GetActivity"))
 		{
-            this.GetActivity();
+            this.GetActivity(callbackContext);
             return true;
         }
 		if (action.equals("Connect"))
@@ -51,7 +51,7 @@ public class ActivityRecognition extends CordovaPlugin {
         return false;
     }
 
-    private void GetActivity() 
+    private void GetActivity( CallbackContext callback) 
 	{
         // if (Connected == true)
 		// {
