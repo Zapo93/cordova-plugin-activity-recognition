@@ -26,27 +26,27 @@ public class ActivityRecognition extends CordovaPlugin {
             this.GetActivity(callbackContext);
             return true;
         }
-		if (action.equals("Connect"))
-		{
-            this.Connect();
-            return true;
-        }
-		if (action.equals("Dissconnect"))
-		{
-            this.Dissconnect();
-            return true;
-        }
-		if (action.equals("StartActivityUpdates"))
-		{
-			int interval = args.getInt(0);
-            this.StartActivityUpdates(interval);
-            return true;
-        }
-		if (action.equals("StopActivityUpdates"))
-		{
-            this.StopActivityUpdates();
-            return true;
-        }
+		// if (action.equals("Connect"))
+		// {
+            // this.Connect();
+            // return true;
+        // }
+		// if (action.equals("Dissconnect"))
+		// {
+            // this.Dissconnect();
+            // return true;
+        // }
+		// if (action.equals("StartActivityUpdates"))
+		// {
+			// int interval = args.getInt(0);
+            // this.StartActivityUpdates(interval);
+            // return true;
+        // }
+		// if (action.equals("StopActivityUpdates"))
+		// {
+            // this.StopActivityUpdates();
+            // return true;
+        // }
 		
         return false;
     }
@@ -55,7 +55,7 @@ public class ActivityRecognition extends CordovaPlugin {
 	{
         // if (Connected == true)
 		// {
-            callback.success();
+            callback.success("Success!");
         // } 
         // else 
 		// {
