@@ -14,44 +14,44 @@ public class ActivityRecognition extends CordovaPlugin {
 	
 	// public static ActivityRequestResult Activity;
 	// public static ActivityRecognitionInit API = new ActivityRecognitionInit();
-	// private Boolean Connected = false;
-	// public CallbackContext callback ;
+	private boolean Connected = false;
+    public CallbackContext callback ;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
 	{
-        //callback = callbackContext;
+        callback = callbackContext;
 		if (action.equals("GetActivity"))
 		{
-            this.GetActivity(callbackContext);
+            this.GetActivity();
             return true;
         }
-		// if (action.equals("Connect"))
-		// {
-            // this.Connect();
-            // return true;
-        // }
-		// if (action.equals("Dissconnect"))
-		// {
-            // this.Dissconnect();
-            // return true;
-        // }
-		// if (action.equals("StartActivityUpdates"))
-		// {
-			// int interval = args.getInt(0);
-            // this.StartActivityUpdates(interval);
-            // return true;
-        // }
-		// if (action.equals("StopActivityUpdates"))
-		// {
-            // this.StopActivityUpdates();
-            // return true;
-        // }
+		if (action.equals("Connect"))
+		{
+            this.Connect();
+            return true;
+        }
+		if (action.equals("Dissconnect"))
+		{
+            this.Dissconnect();
+            return true;
+        }
+		if (action.equals("StartActivityUpdates"))
+		{
+			int interval = args.getInt(0);
+            this.StartActivityUpdates(interval);
+            return true;
+        }
+		if (action.equals("StopActivityUpdates"))
+		{
+            this.StopActivityUpdates();
+            return true;
+        }
 		
         return false;
     }
 
-    private void GetActivity( CallbackContext callback) 
+    private void GetActivity( ) 
 	{
         // if (Connected == true)
 		// {
@@ -63,7 +63,7 @@ public class ActivityRecognition extends CordovaPlugin {
         // }
     }
 	
-/*	private void Connect() 
+	private void Connect() 
 	{
         if(Connected == false)
 		{
@@ -111,7 +111,7 @@ public class ActivityRecognition extends CordovaPlugin {
 		{
 			callback.error("StopActivityUpdates");
 		}
-    }*/
+    }
 	
 	
 }
