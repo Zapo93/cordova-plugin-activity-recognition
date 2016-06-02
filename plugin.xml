@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-plugin-activity-recognition" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>ActivityRecognition</name>
+	
 	<js-module name="ActivityRecognition" src="www/ActivityRecognition.js">
 		<clobbers target="cordova.plugins.ActivityRecognition" />
 	</js-module>
 	
 	<engines>
-        	<engine name="cordova" version=">=3.0.0" />
-    	</engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
 
 	<platform name="android">
 		
