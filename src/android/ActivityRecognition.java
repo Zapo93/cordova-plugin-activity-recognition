@@ -58,7 +58,7 @@ public class ActivityRecognition extends CordovaPlugin {
         } 
         else 
 		{
-            callback.error("Expected one non-empty string argument.");
+            callback.error("Error Activity.");
         }
     }
 	
@@ -71,7 +71,7 @@ public class ActivityRecognition extends CordovaPlugin {
 		}
 		else
 		{
-			callback.error();
+			callback.error("Connect !");
 		}
     }
 	
@@ -84,7 +84,7 @@ public class ActivityRecognition extends CordovaPlugin {
 		}
 		else
 		{
-			callback.error();
+			callback.error("Dissconnect");
 		}
     }
 	
@@ -96,7 +96,7 @@ public class ActivityRecognition extends CordovaPlugin {
 		}
 		else
 		{
-			callback.error();
+			callback.error("StartActivityUpdates");
 		}
     }
 	
@@ -108,7 +108,7 @@ public class ActivityRecognition extends CordovaPlugin {
 		}
 		else
 		{
-			callback.error();
+			callback.error("StopActivityUpdates");
 		}
     }
 	
