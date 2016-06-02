@@ -14,8 +14,6 @@
 		
 		<dependency id="com.google.playservices"/>
 		
-		<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
-		
 		<config-file parent="/*" target="res/xml/config.xml">
 			<feature name="ActivityRecognition">
 				<param name="android-package" value="cordova.plugin.activity.recognition.ActivityRecognition" />
@@ -26,6 +24,9 @@
 			<service android:name=".ActivityRecognitionIntentService" android:exported="false" />
 		</config-file>
 		
+		<config-file parent="/*" target="AndroidManifest.xml">
+			<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+		</config-file>
 		
 		<source-file src="src/android/ActivityRecognition.java" target-dir="src/cordova-plugin-activity-recognition/ActivityRecognition" />
 		<source-file src="src/android/ActivityRecognitionIntentService.java" target-dir="src/cordova-plugin-activity-recognition/ActivityRecognition" />
