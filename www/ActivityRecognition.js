@@ -4,7 +4,7 @@ exports.GetActivity = function(success) {
     exec(
 		success,
 		function(){alert("Error getting activity!");}, 
-		"ActivityRecognition", "GetActivity", []
+		"ActivityRecognition", "GetActivity", ["msg"]
 		);
 };
 

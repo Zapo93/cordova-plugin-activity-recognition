@@ -12,10 +12,10 @@ import org.json.JSONObject;
  */
 public class ActivityRecognition extends CordovaPlugin {
 	
-	public static ActivityRequestResult Activity;
-	public static ActivityRecognitionInit API = new ActivityRecognitionInit();
-	private Boolean Connected = false;
-	public CallbackContext callback ;
+	// public static ActivityRequestResult Activity;
+	// public static ActivityRecognitionInit API = new ActivityRecognitionInit();
+	// private Boolean Connected = false;
+	// public CallbackContext callback ;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
