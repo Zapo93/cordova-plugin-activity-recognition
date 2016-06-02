@@ -52,15 +52,15 @@ public class ActivityRecognition extends CordovaPlugin {
     }
 
     private void GetActivity( ) 
+    {
+        if (Connected == true)
 	{
-        // if (Connected == true)
-		// {
-            callback.success("Success!");
-        // } 
-        // else 
-		// {
-            // callback.error("Error Activity.");
-        // }
+           callback.success("Success!");
+        } 
+        else 
+	{
+           callback.error("Error Activity.");
+        } 
     }
 	
 	private void Connect() 
