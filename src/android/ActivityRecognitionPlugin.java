@@ -20,7 +20,7 @@ import com.google.android.gms.location.ActivityRecognition;
 /**
  * This class echoes a string called from JavaScript.
  */
-public class ActivityRecognition extends CordovaPlugin implements ConnectionCallbacks, OnConnectionFailedListener
+public class ActivityRecognitionPlugin extends CordovaPlugin implements ConnectionCallbacks, OnConnectionFailedListener
 {
 	
 	// public static ActivityRequestResult Activity;
