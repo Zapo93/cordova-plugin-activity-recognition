@@ -9,6 +9,9 @@ import org.json.JSONObject;
 
 import android.os.Bundle;
 
+import android.app.PendingIntent;
+import android.content.Intent;
+
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
@@ -29,6 +32,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	
 	public GoogleApiClient mApiClient;
     public CallbackContext callback ;
+	private PendingIntent pendingIntent;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
@@ -128,13 +132,16 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	
 	private void StartActivityUpdates(int interval) 
 	{
-        if(Connected == true)
+        if(mApiClient != null && mApiClient.isConnected())
 		{
+			Intent intent = new Intent( cordova.getActivity(), ActivityRecognitionIntentService.class );
+			pendingIntent = PendingIntent.getService( cordova.getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
+			ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates( mApiClient, interval, pendingIntent );
 			callback.success(interval);
 		}
 		else
 		{
-			callback.error("StartActivityUpdates");
+			callback.error("Not Connected");
 		}
     }
 	
