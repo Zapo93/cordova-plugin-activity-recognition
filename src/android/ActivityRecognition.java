@@ -14,6 +14,8 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.ConnectionResult;
 
+import com.google.android.gms.location.ActivityRecognition;
+
 
 /**
  * This class echoes a string called from JavaScript.
