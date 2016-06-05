@@ -21,15 +21,15 @@ public class ActivityRecognitionIntentService extends IntentService
 		{
 			ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
 			DetectedActivity CurrentActivity = result.getMostProbableActivity();
-			/*
+			
 			if(CurrentActivity.getConfidence() >= 75)
 			{
-				ActivityRecognition.Activity.ActivityType = CurrentActivity.toString();
-				ActivityRecognition.Activity.Propability = CurrentActivity.getConfidence();	
+				ActivityRecognitionPlugin.Activity.ActivityType = CurrentActivity.toString();
+				ActivityRecognitionPlugin.Activity.Propability = CurrentActivity.getConfidence();	
 			}
 			else
 				ActivityRecognition.Activity.ActivityType = "NotConfidentEnough";
-			*/
+			
 		}
 	}
     

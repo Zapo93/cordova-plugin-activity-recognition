@@ -26,13 +26,18 @@ import com.google.android.gms.location.ActivityRecognition;
 public class ActivityRecognitionPlugin extends CordovaPlugin implements ConnectionCallbacks, OnConnectionFailedListener
 {
 	
-	// public static ActivityRequestResult Activity;
+    public static ActivityRequestResult Activity;
 	// public static ActivityRecognitionInit API = new ActivityRecognitionInit();
-	private boolean Connected = false;
 	
 	public GoogleApiClient mApiClient;
     public CallbackContext callback ;
 	private PendingIntent pendingIntent;
+	
+	@Override
+	public void initialize(CordovaInterface cordova, CordovaWebView webView) 
+	{
+		Activity = new ActivityRequestResult();
+    }
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
@@ -70,19 +75,19 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 
     private void GetActivity( ) 
     {
-        if (Connected == true)
+        if (mApiClient != null && mApiClient.isConnected())
 		{
-           callback.success("Success!");
+           callback.success(Activity);
         } 
         else 
 		{
-           callback.error("Not Connected.");
+           callback.error("Not Connected");
         } 
     }
 	
 	private void Connect() 
 	{
-		Connected = true;
+		
         if(  mApiClient == null || !mApiClient.isConnected() )
 		{
 			mApiClient = new GoogleApiClient.Builder(cordova.getActivity())
@@ -120,13 +125,12 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	{
         if(mApiClient!= null && mApiClient.isConnected())
 		{
-			Connected = false;
 			mApiClient.disconnect();
 			callback.success();
 		}
 		else
 		{
-			callback.error("Not Connected !");
+			callback.error("Not Connected");
 		}
     }
 	
@@ -147,13 +151,14 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	
 	private void StopActivityUpdates() 
 	{
-        if(Connected == true)
+        if(mApiClient != null && mApiClient.isConnected())
 		{
+			ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent);
 			callback.success();
 		}
 		else
 		{
-			callback.error("StopActivityUpdates");
+			callback.error("Not Connected");
 		}
     }
 	
@@ -162,7 +167,6 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	{
 		if(mApiClient!= null && mApiClient.isConnected())
 		{
-			Connected = false;
 			mApiClient.disconnect();
 		}
 	}
