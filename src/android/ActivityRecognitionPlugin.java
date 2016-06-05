@@ -88,7 +88,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
             .build();
  
 			mApiClient.connect();
-			callback.success();
+			
 		}
 		else
 			callback.error("Already Connected!");
@@ -97,7 +97,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	@Override
     public void onConnected( Bundle bundle) 
 	{
-         
+        callback.success();
     }
  
     @Override
