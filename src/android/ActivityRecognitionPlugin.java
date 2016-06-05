@@ -78,6 +78,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	
 	private void Connect() 
 	{
+		Connected = true;
         if( !mApiClient.isConnected() || mApiClient == null)
 		{
 			mApiClient = new GoogleApiClient.Builder(cordova.getActivity())
