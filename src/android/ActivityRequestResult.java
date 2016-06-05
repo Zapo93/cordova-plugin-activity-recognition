@@ -1,6 +1,7 @@
 package cordova.plugin.activity.recognition;
 
 import org.json.JSONObject;
+import org.json.JSONException;
 
 public class ActivityRequestResult 
 {
@@ -13,7 +14,7 @@ public class ActivityRequestResult
 		Propability = 0;
 	}
 	
-	public JSONObject GetJSONObject()
+	public JSONObject GetJSONObject() throws JSONException 
 	{
 		JSONObject result = new JSONObject();
 		result.put("ActivityType", ActivityType);
