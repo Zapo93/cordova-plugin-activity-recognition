@@ -79,7 +79,14 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
     {
         if (mApiClient != null && mApiClient.isConnected())
 		{
-           callback.success(Activity.GetJSONObject());
+			try 
+			{
+				callback.success(Activity.GetJSONObject());
+			} 
+			catch (JSONException json) 
+			{
+				callback.error("JSONException");
+			} 
         } 
         else 
 		{
