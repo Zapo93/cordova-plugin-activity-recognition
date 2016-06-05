@@ -21,6 +21,7 @@ public class ActivityRecognition extends CordovaPlugin implements ConnectionCall
 	
 	// public static ActivityRequestResult Activity;
 	// public static ActivityRecognitionInit API = new ActivityRecognitionInit();
+	private boolean Connected = false;
 	
 	public GoogleApiClient mApiClient;
     public CallbackContext callback ;
@@ -62,11 +63,11 @@ public class ActivityRecognition extends CordovaPlugin implements ConnectionCall
     private void GetActivity( ) 
     {
         if (Connected == true)
-	{
+		{
            callback.success("Success!");
         } 
         else 
-	{
+		{
            callback.error("Error Activity.");
         } 
     }
