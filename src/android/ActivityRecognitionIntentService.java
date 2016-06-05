@@ -22,6 +22,8 @@ public class ActivityRecognitionIntentService extends IntentService
 			ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
 			DetectedActivity CurrentActivity = result.getMostProbableActivity();
 			
+			ActivityRecognitionPlugin.Activity.ActivityType = "Started";
+			
 			if(CurrentActivity.getConfidence() >= 75)
 			{
 				ActivityRecognitionPlugin.Activity.ActivityType = CurrentActivity.toString();
