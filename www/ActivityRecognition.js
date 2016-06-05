@@ -12,7 +12,7 @@ exports.GetActivity = function(success) {
 exports.Connect = function() {
     exec(
 		function(){alert("Connected !");},
-		function(msg){alert(msg);}, 
+		function(msg){alert("Error : " + msg);}, 
 		"ActivityRecognitionPlugin", "Connect", []
 		);
 };
