@@ -114,14 +114,15 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	
 	private void Dissconnect() 
 	{
-        if(Connected == true)
+        if(mApiClient!= null && mApiClient.isConnected())
 		{
 			Connected = false;
+			mApiClient.disconnect();
 			callback.success();
 		}
 		else
 		{
-			callback.error("Dissconnect");
+			callback.error("Not Connected !");
 		}
     }
 	
@@ -149,5 +150,14 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 		}
     }
 	
+	@Override
+	public void onDestroy() 
+	{
+		if(mApiClient!= null && mApiClient.isConnected())
+		{
+			Connected = false;
+			mApiClient.disconnect();
+		}
+	}
 	
 }
