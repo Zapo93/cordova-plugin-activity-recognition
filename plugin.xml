@@ -21,7 +21,7 @@
 		</config-file>
 		
 		<config-file parent="/*" target="AndroidManifest.xml">
-			<service android:name=".ActivityRecognitionIntentService" android:exported="false" />
+			<service android:name="cordova.plugin.activity.recognition.ActivityRecognitionIntentService" android:exported="false" />
 		</config-file>
 		
 		<config-file parent="/*" target="AndroidManifest.xml">
