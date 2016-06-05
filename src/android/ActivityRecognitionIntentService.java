@@ -28,7 +28,7 @@ public class ActivityRecognitionIntentService extends IntentService
 				ActivityRecognitionPlugin.Activity.Propability = CurrentActivity.getConfidence();	
 			}
 			else
-				ActivityRecognition.Activity.ActivityType = "NotConfidentEnough";
+				ActivityRecognitionPlugin.Activity.ActivityType = "NotConfidentEnough";
 			
 		}
 	}
