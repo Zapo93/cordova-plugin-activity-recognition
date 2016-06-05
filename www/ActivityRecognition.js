@@ -3,7 +3,7 @@ var exec = require('cordova/exec');
 exports.GetActivity = function(success) {
     exec(
 		success,
-		function(){alert("Error getting activity!");}, 
+		function(msg){alert("Error getting activity!" + msg);}, 
 		"ActivityRecognitionPlugin", "GetActivity", []
 		);
 };
