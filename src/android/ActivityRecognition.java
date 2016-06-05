@@ -7,14 +7,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.ConnectionResult;
+
+
 /**
  * This class echoes a string called from JavaScript.
  */
-public class ActivityRecognition extends CordovaPlugin {
+public class ActivityRecognition extends CordovaPlugin implements ConnectionCallbacks, OnConnectionFailedListener
+{
 	
 	// public static ActivityRequestResult Activity;
 	// public static ActivityRecognitionInit API = new ActivityRecognitionInit();
-	private boolean Connected = false;
+	
+	public GoogleApiClient mApiClient;
     public CallbackContext callback ;
 
     @Override
@@ -65,15 +73,36 @@ public class ActivityRecognition extends CordovaPlugin {
 	
 	private void Connect() 
 	{
-        if(Connected == false)
+        if( !mApiClient.isConnected() || mApiClient == null)
 		{
-			Connected = true;
-			callback.success();
+			mApiClient = new GoogleApiClient.Builder(cordova.getActivity())
+            .addApi(ActivityRecognition.API)
+            .addConnectionCallbacks(this)
+            .addOnConnectionFailedListener(this)
+            .build();
+ 
+			mApiClient.connect();
 		}
 		else
-		{
-			callback.error("Connect !");
-		}
+			callback.error("Already Connected!");
+    }
+	
+	@Override
+    public void onConnected( Bundle bundle) 
+	{
+        callback.success(); 
+    }
+ 
+    @Override
+    public void onConnectionSuspended(int i)
+	{
+ 
+    }
+ 
+    @Override
+    public void onConnectionFailed( ConnectionResult connectionResult)
+	{
+		callback.error("Connection Failed !");
     }
 	
 	private void Dissconnect() 
