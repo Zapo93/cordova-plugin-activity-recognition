@@ -16,8 +16,8 @@ public class ActivityRequestResult
 	public JSONObject GetJSONObject()
 	{
 		JSONObject result = new JSONObject();
-		obj.put("ActivityType", ActivityType);
-		obj.put("Propability", Propability);
+		result.put("ActivityType", ActivityType);
+		result.put("Propability", Propability);
 		return result;
 	}
 }
