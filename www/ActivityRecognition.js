@@ -28,7 +28,7 @@ exports.Dissconnect = function() {
 exports.StartActivityUpdates = function(interval) {
     exec(
 		function(Interv){alert("Activity Updates Started ! Interval = " + Interv);},
-		function(){alert("Error while Starting activity updates!");}, 
+		function(msg){alert("Error while Starting activity updates!  "+ msg);}, 
 		"ActivityRecognitionPlugin", "StartActivityUpdates", [interval]
 		);
 };
