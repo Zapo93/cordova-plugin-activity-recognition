@@ -21,10 +21,10 @@
 		</config-file>
 		
 		<config-file parent="/manifest/application" target="AndroidManifest.xml">
-			<service android:name="cordova.plugin.activity.recognition.ActivityRecognitionIntentService" android:exported="false" />
+			<service android:name="cordova.plugin.activity.recognition.ActivityRecognitionIntentService"  />
 		</config-file>
 		
-		<config-file parent="/*" target="AndroidManifest.xml">
+		<config-file parent="/manifest" target="AndroidManifest.xml">
 			<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
 		</config-file>
 		
