@@ -12,9 +12,9 @@ import org.json.JSONObject;
 import android.os.Bundle;
 
 import android.app.PendingIntent;
-import android.app.PendingResult;
 import android.content.Intent;
 
+import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
@@ -149,9 +149,10 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	{
         if(mApiClient != null && mApiClient.isConnected())
 		{
+			PendingResult<Status> result; 
 			Intent intent = new Intent( cordova.getActivity(), ActivityRecognitionIntentService.class );
 			pendingIntent = PendingIntent.getService( cordova.getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
-			Status result = ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates( mApiClient, interval, pendingIntent );
+			result = ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates( mApiClient, interval, pendingIntent );
 			if(result.isSuccess())
 				callback.success(interval);
 			else
