@@ -22,11 +22,17 @@ public class ActivityRecognitionIntentService extends IntentService
 			ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
 			DetectedActivity CurrentActivity = result.getMostProbableActivity();
 			
-			ActivityRecognitionPlugin.Activity.ActivityType = "Started";
-			
-			if(CurrentActivity.getConfidence() >= 75)
+			if(CurrentActivity.getConfidence() >= 51)
 			{
-				ActivityRecognitionPlugin.Activity.ActivityType = CurrentActivity.toString();
+				switch(CurrentActivity.getType())
+				{
+					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
+					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
+					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
+					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
+					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
+					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
+				}
 				ActivityRecognitionPlugin.Activity.Propability = CurrentActivity.getConfidence();	
 			}
 			else
