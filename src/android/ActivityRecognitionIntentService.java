@@ -27,11 +27,12 @@ public class ActivityRecognitionIntentService extends IntentService
 				switch(CurrentActivity.getType())
 				{
 					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
-					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
-					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
-					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
-					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
-					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
+					case DetectedActivity.ON_BICYCLE : ActivityRecognitionPlugin.Activity.ActivityType = "On Bicycle";break;
+					case DetectedActivity.ON_FOOT : ActivityRecognitionPlugin.Activity.ActivityType = "On Foot";break;
+					case DetectedActivity.RUNNING : ActivityRecognitionPlugin.Activity.ActivityType = "Running";break;
+					case DetectedActivity.STILL : ActivityRecognitionPlugin.Activity.ActivityType = "Still";break;
+					case DetectedActivity.TILTING : ActivityRecognitionPlugin.Activity.ActivityType = "Tilting";break;
+					case DetectedActivity.WALKING : ActivityRecognitionPlugin.Activity.ActivityType = "Walking";break;
 				}
 				ActivityRecognitionPlugin.Activity.Propability = CurrentActivity.getConfidence();	
 			}
