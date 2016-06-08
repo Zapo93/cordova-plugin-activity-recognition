@@ -14,6 +14,20 @@ public class ActivityRecognitionIntentService extends IntentService
         super("ActivityRecognitionIntentService");
     }
 	
+	private String ConvertActivityCodeToString(DetectedActivity Activity)
+	{
+		switch(Activity.getType())
+		{
+			case DetectedActivity.IN_VEHICLE : return "In Vechicle";
+			case DetectedActivity.ON_BICYCLE : return "On Bicycle";
+			case DetectedActivity.ON_FOOT : return "On Foot";
+			case DetectedActivity.RUNNING : return "Running";
+			case DetectedActivity.STILL : return "Still";
+			case DetectedActivity.TILTING : return "Tilting";
+			case DetectedActivity.WALKING : return "Walking";
+		}
+	}
+	
 	@Override
 	protected void onHandleIntent(Intent intent) 
 	{
@@ -22,23 +36,8 @@ public class ActivityRecognitionIntentService extends IntentService
 			ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
 			DetectedActivity CurrentActivity = result.getMostProbableActivity();
 			
-			if(CurrentActivity.getConfidence() >= 51)
-			{
-				switch(CurrentActivity.getType())
-				{
-					case DetectedActivity.IN_VEHICLE : ActivityRecognitionPlugin.Activity.ActivityType = "In Vechicle";break;
-					case DetectedActivity.ON_BICYCLE : ActivityRecognitionPlugin.Activity.ActivityType = "On Bicycle";break;
-					case DetectedActivity.ON_FOOT : ActivityRecognitionPlugin.Activity.ActivityType = "On Foot";break;
-					case DetectedActivity.RUNNING : ActivityRecognitionPlugin.Activity.ActivityType = "Running";break;
-					case DetectedActivity.STILL : ActivityRecognitionPlugin.Activity.ActivityType = "Still";break;
-					case DetectedActivity.TILTING : ActivityRecognitionPlugin.Activity.ActivityType = "Tilting";break;
-					case DetectedActivity.WALKING : ActivityRecognitionPlugin.Activity.ActivityType = "Walking";break;
-				}
-				ActivityRecognitionPlugin.Activity.Propability = CurrentActivity.getConfidence();	
-			}
-			else
-				ActivityRecognitionPlugin.Activity.ActivityType = "NotConfidentEnough";
-			
+			ActivityRecognitionPlugin.Activity.ActivityType = ConvertActivityCodeToString(CurrentActivity);
+			ActivityRecognitionPlugin.Activity.Propability = CurrentActivity.getConfidence();	
 		}
 	}
     

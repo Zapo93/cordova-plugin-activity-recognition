@@ -154,7 +154,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 			pendingIntent = PendingIntent.getService( cordova.getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
 			result = ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates( mApiClient, interval, pendingIntent );
 			//if(result.isSuccess())// da se vidi kvo pravi PendingResult i kak se izpolzva set result callback !!
-				callback.success(interval);
+				callback.success();
 			//else
 			//	callback.error("Reqest Not Successful");
 		}

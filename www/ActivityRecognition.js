@@ -1,42 +1,42 @@
 var exec = require('cordova/exec');
 
-exports.GetActivity = function(success) {
+exports.GetActivity = function(success,error) { //success({ActivityType,Propability}) , error(ErrorMessage)
     exec(
 		success,
-		function(msg){alert("Error getting activity!" + msg);}, 
+		error, 
 		"ActivityRecognitionPlugin", "GetActivity", []
 		);
 };
 
 
-exports.Connect = function() {
+exports.Connect = function(success,error) { //success() , error(ErrorMessage)
     exec(
-		function(){alert("Connected !");},
-		function(msg){alert("Error : " + msg);}, 
+		success,
+		error, 
 		"ActivityRecognitionPlugin", "Connect", []
 		);
 };
 
-exports.Dissconnect = function() {
+exports.Dissconnect = function(success,error) {//success() , error(ErrorMessage)
     exec(
-		function(){alert("Disconnected !");},
-		function(){alert("Error while Dissconnecting");}, 
+		success,
+		error, 
 		"ActivityRecognitionPlugin", "Dissconnect", []
 		);
 };
 
-exports.StartActivityUpdates = function(interval) {
+exports.StartActivityUpdates = function(interval,success,error) {//success() , error(ErrorMessage)
     exec(
-		function(Interv){alert("Activity Updates Started ! Interval = " + Interv);},
-		function(msg){alert("Error while Starting activity updates!  "+ msg);}, 
+		success,
+		error, 
 		"ActivityRecognitionPlugin", "StartActivityUpdates", [interval]
 		);
 };
 
-exports.StopActivityUpdates = function() {
+exports.StopActivityUpdates = function(success,error) {//success() , error(ErrorMessage)
     exec(
-		function(){alert("Activity Updates Stopped");},
-		function(){alert("Error while Stopping activity updates !");}, 
+		success,
+		error, 
 		"ActivityRecognitionPlugin", "StopActivityUpdates", []
 		);
 };
