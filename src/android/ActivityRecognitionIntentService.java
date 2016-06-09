@@ -26,6 +26,8 @@ public class ActivityRecognitionIntentService extends IntentService
 			case DetectedActivity.TILTING : return "Tilting";
 			case DetectedActivity.WALKING : return "Walking";
 		}
+		
+		return "Can Not Recognize";
 	}
 	
 	@Override
