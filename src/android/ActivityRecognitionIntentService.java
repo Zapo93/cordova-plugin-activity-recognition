@@ -12,6 +12,7 @@ public class ActivityRecognitionIntentService extends IntentService
 	public ActivityRecognitionIntentService()
 	{
         super("ActivityRecognitionIntentService");
+		ActivityRecognitionPlugin.Activity.ActivityType = "IntentServiceStarted";
     }
 	
 	private String ConvertActivityCodeToString(DetectedActivity Activity)
@@ -40,6 +41,10 @@ public class ActivityRecognitionIntentService extends IntentService
 			
 			ActivityRecognitionPlugin.Activity.ActivityType = ConvertActivityCodeToString(CurrentActivity);
 			ActivityRecognitionPlugin.Activity.Propability = CurrentActivity.getConfidence();	
+		}
+		else 
+		{
+			ActivityRecognitionPlugin.Activity.ActivityType = "NoResult";
 		}
 	}
     

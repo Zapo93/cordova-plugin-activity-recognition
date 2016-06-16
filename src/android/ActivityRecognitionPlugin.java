@@ -36,6 +36,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	public GoogleApiClient mApiClient;
     public CallbackContext callback ;
 	private PendingIntent pendingIntent;
+	private Boolean ActivityUpdatesStarted = false;
 	
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) 
@@ -154,6 +155,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 			pendingIntent = PendingIntent.getService( cordova.getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
 			result = ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates( mApiClient, interval, pendingIntent );
 			//if(result.isSuccess())// da se vidi kvo pravi PendingResult i kak se izpolzva set result callback !!
+				ActivityUpdatesStarted = true;
 				callback.success();
 			//else
 			//	callback.error("Reqest Not Successful");
@@ -169,6 +171,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
         if(mApiClient != null && mApiClient.isConnected())
 		{
 			ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent);
+			ActivityUpdatesStarted = false;
 			callback.success();
 		}
 		else
@@ -180,6 +183,8 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	@Override
 	public void onDestroy() 
 	{
+		if(ActivityUpdatesStarted)
+			ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent);
 		if(mApiClient!= null && mApiClient.isConnected())
 		{
 			mApiClient.disconnect();
