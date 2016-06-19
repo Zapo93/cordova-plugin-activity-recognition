@@ -159,7 +159,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 			//if(result.isSuccess())// da se vidi kvo pravi PendingResult i kak se izpolzva set result callback !!
 				ActivityUpdatesStarted = true;
 				
-				AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+				AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
 				builder.setMessage("Started !")
 					   .setTitle("Activity Updates");
 				AlertDialog dialog = builder.create();
