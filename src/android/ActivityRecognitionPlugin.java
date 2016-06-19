@@ -189,6 +189,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 		{
 			mApiClient.disconnect();
 		}
+		super.onDestroy ();
 	}
 	
 }
