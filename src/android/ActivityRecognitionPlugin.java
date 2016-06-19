@@ -182,10 +182,9 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 		}
     }
 	
-	@Override
 	public void onStop()
 	{
-		super.onStop();
+		
 		AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
 		builder.setMessage("Stopped !")
 			   .setTitle("Activity!");
