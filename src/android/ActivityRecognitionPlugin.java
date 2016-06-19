@@ -181,9 +181,11 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 			callback.error("Not Connected");
 		}
     }
+	
 	@Override
 	public void onStop()
 	{
+		super.onStop();
 		AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
 		builder.setMessage("Stopped !")
 			   .setTitle("Activity!");
