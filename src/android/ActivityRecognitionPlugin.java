@@ -160,7 +160,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 				ActivityUpdatesStarted = true;
 				
 				AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-				builder.setMessage("Started !");
+				builder.setMessage("Started !")
 					   .setTitle("Activity Updates");
 				AlertDialog dialog = builder.create();
 				dialog.show();
