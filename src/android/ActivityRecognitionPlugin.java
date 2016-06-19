@@ -184,24 +184,21 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	
 	
 	@Override
-	public void onPause(boolean multitasking) {
-		// AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity()); //vika se vurhu tekushtoto activity , 
-		// //toest ako ne mojesh da vidish  activity - to ne mojesh da vidish i dialoga => ne vurshi rabota v onDestroy !! 		
+	public void onPause(boolean multitasking)
+	{
+		//vika se vurhu tekushtoto activity , 
+		// toest ako ne mojesh da vidish  activity - to ne mojesh da vidish i dialoga => ne vurshi rabota v onDestroy !! 
+		// AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity()); 		
 		// builder.setMessage("Paused !")
 			   // .setTitle("Activity!");
 		// AlertDialog dialog = builder.create();
 		// dialog.show();
-    }
+    	}
 
     
 	@Override
 	public void onDestroy() 
 	{
-		AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
-		builder.setMessage("Destroying !")
-			   .setTitle("OnDestroy!");
-		AlertDialog dialog = builder.create();
-		dialog.show();
 		if(ActivityUpdatesStarted)
 			ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent);
 		if(mApiClient!= null && mApiClient.isConnected())
