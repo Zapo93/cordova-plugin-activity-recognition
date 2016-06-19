@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.app.PendingIntent;
 import android.content.Intent;
 
+import android.app.AlertDialog;
+
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -156,6 +158,12 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 			result = ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates( mApiClient, interval, pendingIntent );
 			//if(result.isSuccess())// da se vidi kvo pravi PendingResult i kak se izpolzva set result callback !!
 				ActivityUpdatesStarted = true;
+				
+				AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+				builder.setMessage("Started !");
+					   .setTitle("Activity Updates");
+				AlertDialog dialog = builder.create();
+				dialog.show();
 				callback.success();
 			//else
 			//	callback.error("Reqest Not Successful");
