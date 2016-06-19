@@ -158,12 +158,6 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 			result = ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates( mApiClient, interval, pendingIntent );
 			//if(result.isSuccess())// da se vidi kvo pravi PendingResult i kak se izpolzva set result callback !!
 				ActivityUpdatesStarted = true;
-				
-				AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
-				builder.setMessage("Started !")
-					   .setTitle("Activity Updates");
-				AlertDialog dialog = builder.create();
-				dialog.show();
 				callback.success();
 			//else
 			//	callback.error("Reqest Not Successful");
@@ -191,6 +185,11 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	@Override
 	public void onDestroy() 
 	{
+		AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
+		builder.setMessage("Destroying !")
+			   .setTitle("OnDestroy!");
+		AlertDialog dialog = builder.create();
+		dialog.show();
 		if(ActivityUpdatesStarted)
 			ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(mApiClient, pendingIntent);
 		if(mApiClient!= null && mApiClient.isConnected())
