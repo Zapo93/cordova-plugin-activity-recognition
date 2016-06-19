@@ -192,36 +192,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 		dialog.show();
     }
 
-    /**
-     * Called when the activity will start interacting with the user.
-     *
-     * @param multitasking		Flag indicating if multitasking is turned on for app
-     */
-	 @Override
-    public void onResume(boolean multitasking) {
-    }
-
-    /**
-     * Called when the activity is becoming visible to the user.
-     */
-	 @Override
-    public void onStart() {
-    }
-
-    /**
-     * Called when the activity is no longer visible to the user.
-     */
-	 @Override
-    public void onStop() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
-		builder.setMessage("Stopped !")
-			   .setTitle("Activity!");
-		AlertDialog dialog = builder.create();
-		dialog.show();
-    }
-	
-	
-	
+    
 	@Override
 	public void onDestroy() 
 	{
