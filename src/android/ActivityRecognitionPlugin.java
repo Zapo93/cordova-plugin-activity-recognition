@@ -185,11 +185,12 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	
 	@Override
 	public void onPause(boolean multitasking) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
-		builder.setMessage("Paused !")
-			   .setTitle("Activity!");
-		AlertDialog dialog = builder.create();
-		dialog.show();
+		// AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity()); //vika se vurhu tekushtoto activity , 
+		// //toest ako ne mojesh da vidish  activity - to ne mojesh da vidish i dialoga => ne vurshi rabota v onDestroy !! 		
+		// builder.setMessage("Paused !")
+			   // .setTitle("Activity!");
+		// AlertDialog dialog = builder.create();
+		// dialog.show();
     }
 
     
