@@ -9,6 +9,8 @@ import com.google.android.gms.location.DetectedActivity;
 
 public class ActivityRecognitionIntentService extends IntentService 
 {
+	public static ActivityRequestResult Activity;
+	
 	public ActivityRecognitionIntentService()
 	{
         super("ActivityRecognitionIntentService");
@@ -39,12 +41,12 @@ public class ActivityRecognitionIntentService extends IntentService
 			ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
 			DetectedActivity CurrentActivity = result.getMostProbableActivity();
 			
-			ActivityRecognitionPlugin.Activity.ActivityType = ConvertActivityCodeToString(CurrentActivity);
-			ActivityRecognitionPlugin.Activity.Propability = CurrentActivity.getConfidence();	
+			Activity.ActivityType = ConvertActivityCodeToString(CurrentActivity);
+			Activity.Propability = CurrentActivity.getConfidence();	
 		}
 		else 
 		{
-			ActivityRecognitionPlugin.Activity.ActivityType = "NoResult";
+			Activity.ActivityType = "NoResult";
 		}
 	}
     

@@ -32,8 +32,8 @@ import com.google.android.gms.location.ActivityRecognition;
 public class ActivityRecognitionPlugin extends CordovaPlugin implements ConnectionCallbacks, OnConnectionFailedListener
 {
 	
-    public static ActivityRequestResult Activity;
-	// public static ActivityRecognitionInit API = new ActivityRecognitionInit();
+    
+	
 	
 	public GoogleApiClient mApiClient;
     public CallbackContext callback ;
@@ -43,7 +43,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) 
 	{
-		Activity = new ActivityRequestResult();
+		ActivityRecognitionIntentService.Activity = new ActivityRequestResult();
     }
 
     @Override
@@ -86,7 +86,7 @@ public class ActivityRecognitionPlugin extends CordovaPlugin implements Connecti
 		{
 			try 
 			{
-				callback.success(Activity.GetJSONObject());
+				callback.success(ActivityRecognitionIntentService.Activity.GetJSONObject());
 			} 
 			catch (JSONException json) 
 			{
