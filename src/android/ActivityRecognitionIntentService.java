@@ -14,7 +14,6 @@ public class ActivityRecognitionIntentService extends IntentService
 	public ActivityRecognitionIntentService()
 	{
         super("ActivityRecognitionIntentService");
-		ActivityRecognitionPlugin.Activity.ActivityType = "IntentServiceStarted";
     }
 	
 	private String ConvertActivityCodeToString(DetectedActivity Activity)
