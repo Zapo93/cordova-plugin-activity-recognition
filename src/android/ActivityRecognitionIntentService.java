@@ -35,18 +35,26 @@ public class ActivityRecognitionIntentService extends IntentService
 	@Override
 	protected void onHandleIntent(Intent intent) 
 	{
-		if(ActivityRecognitionResult.hasResult(intent)) 
+		try
 		{
-			ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
-			DetectedActivity CurrentActivity = result.getMostProbableActivity();
-			
-			Activity.ActivityType = ConvertActivityCodeToString(CurrentActivity);
-			Activity.Propability = CurrentActivity.getConfidence();	
+			if(ActivityRecognitionResult.hasResult(intent)) 
+			{
+				ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
+				DetectedActivity CurrentActivity = result.getMostProbableActivity();
+				
+				Activity.ActivityType = ConvertActivityCodeToString(CurrentActivity);
+				Activity.Propability = CurrentActivity.getConfidence();	
+			}
+			else 
+			{
+				Activity.ActivityType = "NoResult";
+			}
 		}
-		else 
-		{
-			Activity.ActivityType = "NoResult";
-		}
+		catch (Exception e)
+        {
+            Log.e("IntentService", "onHandleIntent: "+e.getMessage());
+            e.printStackTrace();
+        }
 	}
     
 }
