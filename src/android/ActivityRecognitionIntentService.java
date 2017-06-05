@@ -52,8 +52,7 @@ public class ActivityRecognitionIntentService extends IntentService
 		}
 		catch (Exception e)
         {
-            Log.e("IntentService", "onHandleIntent: "+e.getMessage());
-            e.printStackTrace();
+           
         }
 	}
     
