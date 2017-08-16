@@ -12,7 +12,7 @@
 
 	<platform name="android">
 		
-		<dependency id="com.google.playservices"/>
+		<framework src="com.google.android.gms:play-services:8.1.0" value="gradle" />
 		
 		<config-file parent="/*" target="res/xml/config.xml">
 			<feature name="ActivityRecognitionPlugin">
