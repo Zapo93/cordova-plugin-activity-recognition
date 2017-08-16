@@ -12,6 +12,8 @@
 
 	<platform name="android">
 		
+		<dependency id="com.google.playservices"/>
+		
 		<config-file parent="/*" target="res/xml/config.xml">
 			<feature name="ActivityRecognitionPlugin">
 				<param name="android-package" value="cordova.plugin.activity.recognition.ActivityRecognitionPlugin" />
